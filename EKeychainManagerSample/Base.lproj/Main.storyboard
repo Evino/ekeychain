@@ -16,21 +16,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oLv-AG-ylH">
-                                <rect key="frame" x="97" y="84" width="220" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G3y-cH-660">
-                                <rect key="frame" x="97" y="128" width="220" height="34"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="220" id="Hl0-mi-XRq"/>
-                                </constraints>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Token" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G3y-cH-660">
+                                <rect key="frame" x="40" y="84" width="334" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gYb-Yt-Bu7">
-                                <rect key="frame" x="177" y="170" width="60" height="30"/>
+                                <rect key="frame" x="177" y="126" width="60" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="R9f-By-nI3"/>
                                 </constraints>
@@ -43,18 +35,15 @@
                         <viewLayoutGuide key="safeArea" id="waZ-lh-DCS"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="G3y-cH-660" firstAttribute="top" secondItem="oLv-AG-ylH" secondAttribute="bottom" constant="10" id="3nW-w6-FZc"/>
-                            <constraint firstItem="oLv-AG-ylH" firstAttribute="centerX" secondItem="waZ-lh-DCS" secondAttribute="centerX" id="91O-gK-wOY"/>
-                            <constraint firstItem="oLv-AG-ylH" firstAttribute="top" secondItem="waZ-lh-DCS" secondAttribute="top" constant="40" id="9XM-1i-l1B"/>
-                            <constraint firstItem="G3y-cH-660" firstAttribute="leading" secondItem="oLv-AG-ylH" secondAttribute="leading" id="C3r-WX-Voy"/>
-                            <constraint firstItem="oLv-AG-ylH" firstAttribute="width" secondItem="G3y-cH-660" secondAttribute="width" id="W2K-6S-upk"/>
+                            <constraint firstItem="waZ-lh-DCS" firstAttribute="trailing" secondItem="G3y-cH-660" secondAttribute="trailing" constant="40" id="0hz-LI-RzE"/>
+                            <constraint firstItem="G3y-cH-660" firstAttribute="top" secondItem="waZ-lh-DCS" secondAttribute="top" constant="40" id="SqY-gW-6Rc"/>
+                            <constraint firstItem="G3y-cH-660" firstAttribute="leading" secondItem="waZ-lh-DCS" secondAttribute="leading" constant="40" id="YPv-3b-Oc4"/>
                             <constraint firstItem="gYb-Yt-Bu7" firstAttribute="top" secondItem="G3y-cH-660" secondAttribute="bottom" constant="8" symbolic="YES" id="akS-il-3Bb"/>
                             <constraint firstItem="gYb-Yt-Bu7" firstAttribute="centerX" secondItem="waZ-lh-DCS" secondAttribute="centerX" id="bQu-WS-ljv"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="PasswordTextField" destination="G3y-cH-660" id="tOn-UB-kXL"/>
-                        <outlet property="UserTextField" destination="oLv-AG-ylH" id="4Jp-f1-MuA"/>
+                        <outlet property="TokenTextField" destination="G3y-cH-660" id="tOn-UB-kXL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QhB-5b-GGB" sceneMemberID="firstResponder"/>
