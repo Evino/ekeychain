@@ -2,10 +2,10 @@ Pod::Spec.new do |spec|
 
   spec.name         = "EKeychainManager"
   spec.version      = "0.0.1"
-  spec.summary      = "A Manager to keychain with the objetive to storage tokens from applications into keychain without increasing the amount of busines rules or code in general to do this."
+  spec.summary      = "This cocoapods will help you to manage a token in keychain"
 
   spec.description  = <<-DESC
-  This cocoapods will help you to manage a token in keychain
+A Manager to storage tokens from applications into keychain without increasing the amount of busines rules or code in general to do this.
                    DESC
 
 
@@ -15,8 +15,8 @@ Pod::Spec.new do |spec|
   #  CocoaPods will detect a license file if there is a named LICENSE*
   #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
   #
-
-  spec.license      = { :type => "MIT", :file => "FILE_LICENSE" }
+  spec.homepage     = "https://github.com/Evino/ekeychain"
+  spec.license      = { :type => "MIT", :file => "LICENSE" }
 
   spec.author             = { "Lucas" => "lucasmirsoa@icloud.com" }
 
