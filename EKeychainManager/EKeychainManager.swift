@@ -57,6 +57,15 @@ extension EKeychainManager {
         else { fail() }
     }
     
+    public func deleteStoredToken(success: @escaping () -> Void, fail: @escaping () -> Void) {
+        
+        // Find token and delete
+        if SecItemDelete(self.generateQueryToUpdate() as CFDictionary) == noErr {
+            success()
+        }
+        else { fail() }
+    }
+    
     public func generateAttributes(with token: String) -> [String: Any] {
         
         return [ kSecClass as String: kSecClassGenericPassword,

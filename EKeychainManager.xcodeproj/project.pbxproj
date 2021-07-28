@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		51636BD626AF27A200FCCC73 /* EKeychainManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51636BCC26AF27A200FCCC73 /* EKeychainManager.framework */; };
-		51636BDB26AF27A200FCCC73 /* EKeychainManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51636BDA26AF27A200FCCC73 /* EKeychainManagerTests.swift */; };
 		51636BDD26AF27A200FCCC73 /* EKeychainManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 51636BCF26AF27A200FCCC73 /* EKeychainManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		51636BE726AF27FE00FCCC73 /* EKeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51636BE626AF27FE00FCCC73 /* EKeychainManager.swift */; };
 		51636BEF26AF29F100FCCC73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51636BEE26AF29F100FCCC73 /* AppDelegate.swift */; };
@@ -17,6 +16,7 @@
 		51636BF626AF29F100FCCC73 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51636BF426AF29F100FCCC73 /* Main.storyboard */; };
 		51636BF826AF29F400FCCC73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51636BF726AF29F400FCCC73 /* Assets.xcassets */; };
 		51636BFB26AF29F400FCCC73 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51636BF926AF29F400FCCC73 /* LaunchScreen.storyboard */; };
+		51636C2226B1D8DB00FCCC73 /* EKeychainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51636C2126B1D8DB00FCCC73 /* EKeychainTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,7 +34,6 @@
 		51636BCF26AF27A200FCCC73 /* EKeychainManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EKeychainManager.h; sourceTree = "<group>"; };
 		51636BD026AF27A200FCCC73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		51636BD526AF27A200FCCC73 /* EKeychainManagerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EKeychainManagerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		51636BDA26AF27A200FCCC73 /* EKeychainManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EKeychainManagerTests.swift; sourceTree = "<group>"; };
 		51636BDC26AF27A200FCCC73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		51636BE626AF27FE00FCCC73 /* EKeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EKeychainManager.swift; sourceTree = "<group>"; };
 		51636BEC26AF29F100FCCC73 /* EKeychainManagerSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EKeychainManagerSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -45,6 +44,7 @@
 		51636BF726AF29F400FCCC73 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		51636BFA26AF29F400FCCC73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		51636BFC26AF29F400FCCC73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		51636C2126B1D8DB00FCCC73 /* EKeychainTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EKeychainTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,7 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				51636BDC26AF27A200FCCC73 /* Info.plist */,
-				51636BDA26AF27A200FCCC73 /* EKeychainManagerTests.swift */,
+				51636C2126B1D8DB00FCCC73 /* EKeychainTests.swift */,
 			);
 			path = EKeychainManagerTests;
 			sourceTree = "<group>";
@@ -282,7 +282,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				51636BDB26AF27A200FCCC73 /* EKeychainManagerTests.swift in Sources */,
+				51636C2226B1D8DB00FCCC73 /* EKeychainTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

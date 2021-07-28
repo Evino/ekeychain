@@ -22,19 +22,29 @@ class ViewController: UIViewController {
     }
     
     @IBAction func StoreButtonTapped(_ sender: UIButton) {
-        self.checkIfTokenAlreadyExists()
-    }
-    
-    private func checkIfTokenAlreadyExists() {
         
-        self.keychainManager?.getStoredToken(success: {
-            token in
-            print("token already exist: (stored token) \(token)")
-            print("let's try to set to the new value")
-            self.setTheStoredTokenValue()
-            
+        self.keychainManager?.getStoredToken(success: { _ in
+            print("You can't store a token because it already exist.")
         }, fail: {
             self.storeTokenInKeychain()
+        })
+    }
+    
+    @IBAction func UpdateButtonTapped(_ sender: UIButton) {
+        
+        self.keychainManager?.getStoredToken(success: { _ in
+            self.updateStoredToken()
+        }, fail: {
+            self.storeTokenInKeychain()
+        })
+    }
+    
+    @IBAction func DeleteButtonTapped(_ sender: UIButton) {
+        
+        self.keychainManager?.getStoredToken(success: { _ in
+            self.deleteStoredToken()
+        }, fail: {
+            print("Token doesn't exist.")
         })
     }
     
@@ -43,20 +53,29 @@ class ViewController: UIViewController {
         guard let keychainAttributes = self.keychainManager?.generateAttributes(with: token) else { return }
         
         self.keychainManager?.storeToken(with: keychainAttributes, success: {
-            print("token stored with success - \(token)")
+            print("token stored successfully - \(token)")
         }, fail: {
             print("fail to storage the token")
         })
     }
     
-    private func setTheStoredTokenValue() {
+    private func updateStoredToken() {
         guard let token = TokenTextField.text else { return }
         guard let keychainAttributes = self.keychainManager?.generateAttributesToUpdate(with: token) else { return }
         
         self.keychainManager?.setStoredToken(with: keychainAttributes, success: {
-            print("token updated with success - \(token)")
+            print("token updated successfully - \(token)")
         }, fail: {
             print("fail to update the token")
+        })
+    }
+    
+    private func deleteStoredToken() {
+        
+        self.keychainManager?.deleteStoredToken(success: {
+            print("token deleted successfully")
+        }, fail: {
+            print("fail to delete the token")
         })
     }
 }
