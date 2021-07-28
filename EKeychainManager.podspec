@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "EKeychainManager"
-  spec.version      = "0.0.2"
+  spec.version      = "0.0.3"
   spec.summary      = "This cocoapods will help you to manage a token in keychain"
 
   spec.description  = <<-DESC
@@ -28,8 +28,9 @@ A Manager to storage tokens from applications into keychain without increasing t
 
   spec.platform     = :ios
 
-  #  When using multiple platforms
   spec.ios.deployment_target = "10.3"
+
+  spec.swift_version = '5.0'
 
   spec.source       = { :git => "https://github.com/Evino/ekeychain.git", :tag => "#{spec.version}" }
   
