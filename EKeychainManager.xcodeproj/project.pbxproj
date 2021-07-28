@@ -115,9 +115,10 @@
 		51636BED26AF29F100FCCC73 /* EKeychainManagerSample */ = {
 			isa = PBXGroup;
 			children = (
-				51636C0026AF2A0F00FCCC73 /* Supporting Files */,
+				51636BFC26AF29F400FCCC73 /* Info.plist */,
 				51636BF426AF29F100FCCC73 /* Main.storyboard */,
 				51636BF226AF29F100FCCC73 /* ViewController.swift */,
+				51636C0026AF2A0F00FCCC73 /* Supporting Files */,
 			);
 			path = EKeychainManagerSample;
 			sourceTree = "<group>";
@@ -125,7 +126,6 @@
 		51636C0026AF2A0F00FCCC73 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				51636BFC26AF29F400FCCC73 /* Info.plist */,
 				51636BF726AF29F400FCCC73 /* Assets.xcassets */,
 				51636BEE26AF29F100FCCC73 /* AppDelegate.swift */,
 				51636BF026AF29F100FCCC73 /* SceneDelegate.swift */,
@@ -547,7 +547,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F7X23QNGJ2;
-				INFOPLIST_FILE = "EKeychainManagerSample/Supporting Files/Info.plist";
+				INFOPLIST_FILE = EKeychainManagerSample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -568,7 +568,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F7X23QNGJ2;
-				INFOPLIST_FILE = "EKeychainManagerSample/Supporting Files/Info.plist";
+				INFOPLIST_FILE = EKeychainManagerSample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

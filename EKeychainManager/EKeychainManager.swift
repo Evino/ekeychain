@@ -14,6 +14,12 @@ public final class EKeychainManager {
     public init(identifier: String) {
         self.keychainIdentifier = identifier
     }
+}
+
+
+// MARK: - Public methods
+
+extension EKeychainManager {
     
     public func storeToken(with values: [String: Any], success: @escaping () -> Void, fail: @escaping () -> Void) {
         
