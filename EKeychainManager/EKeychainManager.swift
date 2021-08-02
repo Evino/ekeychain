@@ -30,7 +30,7 @@ extension EKeychainManager {
         else { fail() }
     }
     
-    public func getStoredToken(success: @escaping(_ token: String) -> Void, fail: @escaping () -> Void) {
+    public func getStoredToken() -> String? {
         
         var item: CFTypeRef?
 
@@ -41,11 +41,15 @@ extension EKeychainManager {
                let data = existingItem[kSecValueData as String] as? Data,
                let token = String(data: data, encoding: .utf8) {
                 
-                success(token)
+                return token
             }
-            else { fail() }
+            else {
+                return nil
+            }
         }
-        else { fail() }
+        else {
+            return nil
+        }
     }
     
     public func setStoredToken(with values: [String: Any], success: @escaping () -> Void, fail: @escaping () -> Void) {

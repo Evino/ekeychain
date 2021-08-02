@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var TokenTextField: UITextField!
     
     private var keychainManager: EKeychainManager?
-    private let keychainIdentifier = "identifier_\(UIDevice.current.identifierForVendor!.uuidString)"
+    private let keychainIdentifier = "EKeychainManager_Identifier"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,29 +23,26 @@ class ViewController: UIViewController {
     
     @IBAction func StoreButtonTapped(_ sender: UIButton) {
         
-        self.keychainManager?.getStoredToken(success: { _ in
-            print("You can't store a token because it already exist.")
-        }, fail: {
-            self.storeTokenInKeychain()
-        })
+        if let _ = self.keychainManager?.getStoredToken() {
+            print("You can't store a token because it already exist, maybe you should try update.")
+        }
+        else { self.storeTokenInKeychain() }
     }
     
     @IBAction func UpdateButtonTapped(_ sender: UIButton) {
         
-        self.keychainManager?.getStoredToken(success: { _ in
+        if let _ = self.keychainManager?.getStoredToken() {
             self.updateStoredToken()
-        }, fail: {
-            self.storeTokenInKeychain()
-        })
+        }
+        else { self.storeTokenInKeychain() }
     }
     
     @IBAction func DeleteButtonTapped(_ sender: UIButton) {
         
-        self.keychainManager?.getStoredToken(success: { _ in
+        if let _ = self.keychainManager?.getStoredToken() {
             self.deleteStoredToken()
-        }, fail: {
-            print("Token doesn't exist.")
-        })
+        }
+        else { print("Token doesn't exist.") }
     }
     
     private func storeTokenInKeychain() {
