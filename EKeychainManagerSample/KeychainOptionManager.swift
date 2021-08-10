@@ -12,7 +12,7 @@ final class KeychainOptionManager {
     let type: Options
     var value: String = "" {
         willSet {
-            self.check(newValue)
+            check(newValue)
         }
     }
     // Add how many and which options do you want in this enum
