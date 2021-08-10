@@ -9,11 +9,12 @@ import Security
 
 public final class EKeychainManager {
     
-    private let keychainIdentifier: String
+    private let identifier: String
     
     public init(identifier: String) {
-        self.keychainIdentifier = identifier
+        self.identifier = identifier
     }
+    
 }
 
 
@@ -21,85 +22,92 @@ public final class EKeychainManager {
 
 extension EKeychainManager {
     
-    public func storeToken(with values: [String: Any], success: @escaping () -> Void, fail: @escaping () -> Void) {
-        
-        // Trying to add values
-        if SecItemAdd(values as CFDictionary, nil) == noErr {
-            success()
-        }
-        else { fail() }
-    }
-    
-    public func getStoredToken() -> String? {
+    public func getStoredAttribute() -> String? {
         
         var item: CFTypeRef?
 
         // Check if content exists in the keychain
-        if SecItemCopyMatching(self.generateQuery() as CFDictionary, &item) == noErr {
+        if SecItemCopyMatching(generateQuery() as CFDictionary, &item) == noErr {
             // Extract the result
             if let existingItem = item as? [String: Any],
                let data = existingItem[kSecValueData as String] as? Data,
-               let token = String(data: data, encoding: .utf8) {
+               let attribute = String(data: data, encoding: .utf8) {
                 
-                return token
-            }
-            else {
+                return attribute
+            } else {
                 return nil
             }
-        }
-        else {
+        } else {
             return nil
         }
     }
     
-    public func setStoredToken(with values: [String: Any], success: @escaping () -> Void, fail: @escaping () -> Void) {
+    public func storeAttribute(with value: String, success: @escaping () -> Void, fail: @escaping () -> Void) {
+        
+        let values = generateDictionaryToInsert(with: value)
+        
+        // Trying to add values
+        if SecItemAdd(values as CFDictionary, nil) == noErr {
+            success()
+        } else {
+            fail()
+        }
+    }
+    
+    public func setStoredAttribute(with value: String, success: @escaping () -> Void, fail: @escaping () -> Void) {
 
+        let values = generateDictionaryToUpdate(with: value)
+        
         // Find values and update
-        if SecItemUpdate(self.generateQueryToUpdate() as CFDictionary, values as CFDictionary) == noErr {
+        if SecItemUpdate(generateQueryToUpdate() as CFDictionary, values as CFDictionary) == noErr {
             success()
+        } else {
+            fail()
         }
-        else { fail() }
     }
     
-    public func deleteStoredToken(success: @escaping () -> Void, fail: @escaping () -> Void) {
+    public func deleteStoredAttribute(success: @escaping () -> Void, fail: @escaping () -> Void) {
         
-        // Find token and delete
-        if SecItemDelete(self.generateQueryToUpdate() as CFDictionary) == noErr {
+        // Find attribute and delete
+        if SecItemDelete(generateQueryToUpdate() as CFDictionary) == noErr {
             success()
+        } else {
+            fail()
         }
-        else { fail() }
     }
     
-    public func generateAttributes(with token: String) -> [String: Any] {
-        
-        return [ kSecClass as String: kSecClassGenericPassword,
-                 kSecAttrAccount as String: self.keychainIdentifier,
-                 kSecValueData as String: token.data(using: .utf8)! ]
-    }
-    
-    public func generateAttributesToUpdate(with token: String) -> [String: Any] {
-        
-        return [ kSecValueData as String: token.data(using: .utf8)! ]
-    }
 }
 
 
 // MARK: - Private methods
 
-extension EKeychainManager {
+private extension EKeychainManager {
     
-    private func generateQuery() -> [String: Any] {
+    func generateQuery() -> [String: Any] {
         
         return [ kSecClass as String: kSecClassGenericPassword,
-                 kSecAttrAccount as String: self.keychainIdentifier,
+                 kSecAttrAccount as String: identifier,
                  kSecMatchLimit as String: kSecMatchLimitOne,
                  kSecReturnAttributes as String: true,
                  kSecReturnData as String: true ]
     }
     
-    private func generateQueryToUpdate() -> [String: Any] {
+    func generateQueryToUpdate() -> [String: Any] {
         
         return [ kSecClass as String: kSecClassGenericPassword,
-                 kSecAttrAccount as String: self.keychainIdentifier ]
+                 kSecAttrAccount as String: identifier ]
     }
+    
+    func generateDictionaryToInsert(with attribute: String) -> [String: Any] {
+        
+        return [ kSecClass as String: kSecClassGenericPassword,
+                 kSecAttrAccount as String: identifier,
+                 kSecValueData as String: attribute.data(using: .utf8)! ]
+    }
+    
+    func generateDictionaryToUpdate(with attribute: String) -> [String: Any] {
+        
+        return [ kSecValueData as String: attribute.data(using: .utf8)! ]
+    }
+    
 }

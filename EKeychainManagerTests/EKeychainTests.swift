@@ -13,31 +13,27 @@ class EKeychainTests: XCTestCase {
     let keychainManager = EKeychainManager(identifier: "EKeychainTests_identifier")
     
     func testGetStoredTokenSuccess() {
-        self.testStoreTokenSuccess()
-//        XCTAssertNotNil(self.keychainManager.getStoredToken())
+        testStoreTokenSuccess()
+//        XCTAssertNotNil(keychainManager.getStoredAttribute())
     }
     
     func testStoreTokenSuccess() {
         
-        let attributes = self.keychainManager.generateAttributes(with: "TOKEN_123!@#-STORED")
-        
-        self.keychainManager.storeToken(with: attributes, success: {
+        keychainManager.storeAttribute(with: "TOKEN_123!@#-STORED", success: {
             XCTAssert(true)
         }, fail: { })
     }
     
     func testUpdateTokenSuccess() {
         
-        let attributes = self.keychainManager.generateAttributesToUpdate(with: "TOKEN_123!@#-UPDATED")
-        
-        self.keychainManager.setStoredToken(with: attributes, success: {
+        keychainManager.setStoredAttribute(with: "TOKEN_123!@#-UPDATED", success: {
             XCTAssert(true)
         }, fail: { })
     }
     
     func testDeleteTokenSuccess() {
         
-        self.keychainManager.deleteStoredToken(success: {
+        keychainManager.deleteStoredAttribute(success: {
             XCTAssert(true)
         }, fail: { })
     }
