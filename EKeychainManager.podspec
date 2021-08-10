@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "EKeychainManager"
-  spec.version      = "0.0.6"
+  spec.version      = "0.0.7"
   spec.summary      = "This cocoapods will help you to manage a token in keychain"
 
   spec.description  = <<-DESC
