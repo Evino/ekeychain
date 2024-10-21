@@ -6,6 +6,7 @@
 //
 
 import Security
+import Foundation
 
 public final class EKeychainManager {
     
